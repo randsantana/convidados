@@ -5,6 +5,7 @@ import com.convidados.repository.ConvidadoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
@@ -23,8 +24,15 @@ public class ConvidadosController {
         //envia um objeto convidado para o mv
         mv.addObject(new Convidado());
         //envia uma lista "convidados" da tabela convidados
-        mv.addObject("convidados",
-                convidadoRepository.findAll());
+        mv.addObject("convidados", convidadoRepository.findAll());
         return mv;
+    }
+    @PostMapping("/convidados")
+    public String salvar(Convidado convidado){
+        //chama o metodo save do repository e passa o obj convidado
+        this.convidadoRepository.save(convidado);
+        //atualizar a pagina do front ára exibir os dados
+        //redirect faz um get em /conviidados
+        return "redirect:/convidados";
     }
 }
