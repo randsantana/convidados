@@ -9,13 +9,15 @@ import java.io.Serializable;
 @Entity
 public class Convidado implements Serializable {
     //serialVersionUID esta relacionado a interface Serializable
-    private static final long serialVersionUID = 1l;
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue
     private long id;
+
     private String nome;
-    private int quantidadeAcompanhate;
+
+    private int quantidade_acompanhantes;
 
     public long getId() {
         return id;
@@ -33,11 +35,11 @@ public class Convidado implements Serializable {
         this.nome = nome;
     }
 
-    public int getQuantidadeAcompanhate() {
-        return quantidadeAcompanhate;
+    public int getQuantidade_acompanhantes() {
+        return quantidade_acompanhantes;
     }
 
-    public void setQuantidadeAcompanhate(int quantidadeAcompanhate) {
-        this.quantidadeAcompanhate = quantidadeAcompanhate;
+    public void setQuantidade_acompanhantes(int quantidade_acompanhantes) {
+        this.quantidade_acompanhantes = quantidade_acompanhantes;
     }
 }
